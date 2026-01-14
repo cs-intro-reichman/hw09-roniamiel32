@@ -77,10 +77,11 @@ public class LanguageModel {
 
     // Returns a random character from the given probabilities list.
 	char getRandomChar(List probs) {
-		double r = Math.random();
-        for (int i = 0; i < probs.getSize(); i++) {
-            CharData cd = probs.get(i);
-            if (r <= cd.cp) return cd.chr;
+		double r = randomGenerator.nextDouble();
+        ListIterator itr = probs.listIterator(0);
+        while (itr.hasNext()) {
+            if (r <= itr.current.cp.cp) return itr.current.cp.chr;
+            itr.next();
         }
 		return ' ';
 	}
