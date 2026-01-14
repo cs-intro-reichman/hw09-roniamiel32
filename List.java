@@ -44,15 +44,16 @@ public class List {
     
     /** GIVE Textual representation of this list. */
     public String toString() {
-        String ret = "";
+        String str = "(";
         Node current = first;
-        while (current != null){
-            ret += current.cp.toString();
+        while (current != null) {
+            str += current.cp;
+            if (current.next != null) str += " ";
             current = current.next;
         }
-        return ret;
-    }
-
+        str += ")";
+        return str;
+}
     /** Returns the index of the first CharData object in this list
      *  that has the same chr value as the given char,
      *  or -1 if there is no such object in this list. */
