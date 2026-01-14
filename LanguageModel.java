@@ -95,7 +95,7 @@ public class LanguageModel {
 	public String generate(String initialText, int textLength) {
 		if (initialText.length() < windowLength) return initialText;
         String window = initialText.substring(initialText.length() - windowLength);
-        if (CharDataMap.get(window) == null) return initialText;
+        if (CharDataMap.get(initialText) == null) return initialText;
         String ret = initialText;
         for (int i = 0; i < textLength; i++) {
             char ch = getRandomChar(CharDataMap.get(window));
