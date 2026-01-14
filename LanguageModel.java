@@ -97,14 +97,13 @@ public class LanguageModel {
         String window = initialText.substring(initialText.length() - windowLength);
         if (CharDataMap.get(window) == null) return initialText;
         String ret = initialText;
-        while (ret.length() < textLength){
+        for (int i = 0; i < textLength; i++) {
             char ch = getRandomChar(CharDataMap.get(window));
             ret += ch;
             window = window.substring(1) + ch;
         }
-
         return ret;
-	}
+    }
 
     /** Returns a string representing the map of this language model. */
 	public String toString() {
